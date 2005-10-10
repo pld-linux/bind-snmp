@@ -64,4 +64,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n cacti-bind
 %defattr(644,root,root,755)
+%doc tmp/*.xml
 %{webadminroot}/resource/snmp_queries/*.xml
