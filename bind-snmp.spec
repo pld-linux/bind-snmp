@@ -25,9 +25,9 @@ To jest skrypt dla SNMP dostarczaj±cy wszystkie statystyki Binda 9,
 jakie mo¿na pobraæ za pomoc± polecenia 'rndc status'.
 
 %package -n net-snmp-mibs-bind
-Summary:        MIBs for BIND9
+Summary:	MIBs for BIND9
 Summary(pl):	MIB-y dla BIND-a 9
-Group:          Applications/System
+Group:		Applications/System
 Requires:	net-snmp-mibs
 
 %description -n net-snmp-mibs-bind
@@ -37,9 +37,9 @@ MIBs for BIND9.
 MIB-y dla BIND-a 9.
 
 %package -n cacti-bind
-Summary:        BIND9 plugin for Cacti
+Summary:	BIND9 plugin for Cacti
 Summary(pl):	Wtyczka BIND9 dla Cacti
-Group:          Applications/System
+Group:		Applications/System
 Requires:	net-snmp-mibs-bind = %{version}-%{release}
 Requires:	cacti
 
