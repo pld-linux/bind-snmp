@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Bind SNMP script
-Summary(pl.UTF-8):   Skrypt Bind SNMP
+Summary(pl.UTF-8):	Skrypt Bind SNMP
 Name:		bind-snmp
 Version:	1.1
 Release:	0.1
@@ -26,7 +26,7 @@ jakie można pobrać za pomocą polecenia 'rndc status'.
 
 %package -n net-snmp-mibs-bind
 Summary:	MIBs for BIND9
-Summary(pl.UTF-8):   MIB-y dla BIND-a 9
+Summary(pl.UTF-8):	MIB-y dla BIND-a 9
 Group:		Applications/System
 Requires:	net-snmp-mibs
 
@@ -38,7 +38,7 @@ MIB-y dla BIND-a 9.
 
 %package -n cacti-bind
 Summary:	BIND9 plugin for Cacti
-Summary(pl.UTF-8):   Wtyczka BIND9 dla Cacti
+Summary(pl.UTF-8):	Wtyczka BIND9 dla Cacti
 Group:		Applications/System
 Requires:	net-snmp-mibs-bind = %{version}-%{release}
 Requires:	cacti
