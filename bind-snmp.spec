@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Bind SNMP script
-Summary(pl):	Skrypt Bind SNMP
+Summary(pl.UTF-8):   Skrypt Bind SNMP
 Name:		bind-snmp
 Version:	1.1
 Release:	0.1
@@ -20,25 +20,25 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This is a pass-through script for SNMP that gives all the Bind9
 statistics that can be (is) retrieved with 'rndc status'.
 
-%description -l pl
-To jest skrypt dla SNMP dostarczaj±cy wszystkie statystyki Binda 9,
-jakie mo¿na pobraæ za pomoc± polecenia 'rndc status'.
+%description -l pl.UTF-8
+To jest skrypt dla SNMP dostarczajÄ…cy wszystkie statystyki Binda 9,
+jakie moÅ¼na pobraÄ‡ za pomocÄ… polecenia 'rndc status'.
 
 %package -n net-snmp-mibs-bind
 Summary:	MIBs for BIND9
-Summary(pl):	MIB-y dla BIND-a 9
+Summary(pl.UTF-8):   MIB-y dla BIND-a 9
 Group:		Applications/System
 Requires:	net-snmp-mibs
 
 %description -n net-snmp-mibs-bind
 MIBs for BIND9.
 
-%description -n net-snmp-mibs-bind -l pl
+%description -n net-snmp-mibs-bind -l pl.UTF-8
 MIB-y dla BIND-a 9.
 
 %package -n cacti-bind
 Summary:	BIND9 plugin for Cacti
-Summary(pl):	Wtyczka BIND9 dla Cacti
+Summary(pl.UTF-8):   Wtyczka BIND9 dla Cacti
 Group:		Applications/System
 Requires:	net-snmp-mibs-bind = %{version}-%{release}
 Requires:	cacti
@@ -46,7 +46,7 @@ Requires:	cacti
 %description -n cacti-bind
 BIND9 plugin for Cacti.
 
-%description -n cacti-bind -l pl
+%description -n cacti-bind -l pl.UTF-8
 Wtyczka BIND9 dla Cacti.
 
 %prep
