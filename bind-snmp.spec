@@ -2,15 +2,16 @@
 Summary:	Bind SNMP script
 Summary(pl.UTF-8):	Skrypt Bind SNMP
 Name:		bind-snmp
-Version:	1.1
+Version:	1.7
 Release:	0.1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://www.bayour.com/bind9-snmp/bind9-snmp_%{version}.tgz
-# Source0-md5:	834c7e296e9d5ba28d870629a618715f
+# Source0-md5:	e04c7116a100a619cf81f9b9fb8943e1
 URL:		http://www.bayour.com/bind9-snmp/
 BuildRequires:	rpm-perlprov
 Requires:	bind >= 9.0.0
+Requires:	perl
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,30 +51,36 @@ BIND9 plugin for Cacti.
 Wtyczka BIND9 dla Cacti.
 
 %prep
-%setup -q -c
+%setup -q -n bind9-snmp-%{version}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{webadminroot}/resource/snmp_queries
 install -d $RPM_BUILD_ROOT%{_datadir}/snmp/mibs
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/{snmp,cron.d}
+install -d $RPM_BUILD_ROOT%{perl_vendorlib}
 
-install etc/snmp/* $RPM_BUILD_ROOT%{_sysconfdir}/snmp
-install usr/share/cacti/resource/snmp_queries/* $RPM_BUILD_ROOT%{webadminroot}/resource/snmp_queries
-install usr/share/snmp/mibs/* $RPM_BUILD_ROOT%{_datadir}/snmp/mibs
+install {*.pl,*.stub} $RPM_BUILD_ROOT%{_sysconfdir}/snmp
+install *.xml $RPM_BUILD_ROOT%{webadminroot}/resource/snmp_queries
+install BAYOUR-COM-MIB.txt $RPM_BUILD_ROOT%{_datadir}/snmp/mibs
+install *.pm $RPM_BUILD_ROOT%{perl_vendorlib}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/snmp/*.pl
+%doc README.txt UPGRADE.txt
+%attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/snmp/bind9-snmp-stats.pl
+%{_sysconfdir}/snmp/snmp*.conf.stub
+%{perl_vendorlib}/BayourCOM_SNMP.pm
 
 %files -n net-snmp-mibs-bind
 %defattr(644,root,root,755)
-%{_datadir}/snmp/mibs/*
+%{_datadir}/snmp/mibs/BAYOUR-COM-MIB.txt
 
 %files -n cacti-bind
 %defattr(644,root,root,755)
-%doc tmp/*.xml
-%{webadminroot}/resource/snmp_queries/*.xml
+%{webadminroot}/resource/snmp_queries/cacti_host_template_bind9_snmp_machine.xml
+%{webadminroot}/resource/snmp_queries/bind9-stats_domains.xml
+%{webadminroot}/resource/snmp_queries/bind9-stats_totals.xml
