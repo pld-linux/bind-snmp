@@ -1,3 +1,5 @@
+# TODO
+# - register cacti template (see template-cacti-plugin.spec)?
 %include	/usr/lib/rpm/macros.perl
 Summary:	Bind SNMP script
 Summary(pl.UTF-8):	Skrypt Bind SNMP
