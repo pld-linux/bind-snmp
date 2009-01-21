@@ -13,7 +13,6 @@ Source0:	http://www.bayour.com/bind9-snmp/bind9-snmp_%{version}.tgz
 URL:		http://www.bayour.com/bind9-snmp/
 BuildRequires:	rpm-perlprov
 Requires:	bind >= 9.0.0
-Requires:	perl
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
